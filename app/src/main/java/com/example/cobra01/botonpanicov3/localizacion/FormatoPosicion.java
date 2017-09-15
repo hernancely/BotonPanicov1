@@ -21,7 +21,10 @@ public class FormatoPosicion {
             String provider = location.getProvider();
             double longitude = location.getLongitude();
             double latitude = location.getLatitude();
-            return context.getResources().getString(R.string.i_am_at) + " " + GOOGLE_MAP_URL + latitude + "," + longitude + VIA + provider;
+            String pos=latitude+","+longitude;
+            Log.e(">>>>>>>POSICION",pos);
+           // return context.getString(Integer.parseInt(pos));
+            return latitude + "," + longitude;
           }
         return "";
     }

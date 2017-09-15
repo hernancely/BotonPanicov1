@@ -39,7 +39,13 @@ public class HardwareTriggerReceiver extends BroadcastReceiver {
                 Location lo = pl.getLocation();
                 String locationString = new FormatoPosicion(lo).format(context);
                 MensajePanico mpo = new MensajePanico(context);
-                mpo.recibir(locationString);
+                Log.e("POSICION FORMATEO",locationString);
+                try {
+                   mpo.recibir(locationString);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
             else if (multiClickEvent.isActivated()) {
                 Log.e("*****", "Alerta activada");

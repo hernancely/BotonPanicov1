@@ -20,7 +20,9 @@ public class PosicionListener implements LocationListener {
     private Location loc;
     Context context;
     private LocationManager locManager;
-
+    private static final int GPS_TIME_INTERVAL = 60000; // get gps location every 1 min
+    private static final int GPS_DISTANCE= 1000; // set the distance value in meter
+    private static final int captureFrequencey=3*60*1000;
     public PosicionListener(Context context) {
         super();
         this.context = context;
@@ -47,6 +49,11 @@ public class PosicionListener implements LocationListener {
                     return null;
                 }
                loc = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, captureFrequencey, 100, this);
+               /* if(LocationListener){
+                    locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
+                            GPS_TIME_INTERVAL, GPS_DISTANCE, GPSListener);
+                }*/
                 Log.e("sec","posicion detectada");
                 return loc;
             }else{
@@ -63,6 +70,7 @@ public class PosicionListener implements LocationListener {
     // Este metodo se ejecuta cada vez que el GPS recibe nuevas coordenadas
         // debido a la deteccion de un cambio de ubicacion
         Log.e(">>>>>>", "Enviando posicion Actual.");
+
     }
 
     @Override

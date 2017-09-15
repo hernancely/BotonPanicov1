@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.cobra01.botonpanicov3.localizacion.PosicionListener;
 import com.example.cobra01.botonpanicov3.trigger.HardwareTriggerService;
 
 public class Boton_Panico extends AppCompatActivity {
@@ -23,6 +25,7 @@ public class Boton_Panico extends AppCompatActivity {
         } else {
             getApplication().startService(new Intent(getApplicationContext(), HardwareTriggerService.class));
         }
+        new PosicionListener(getApplicationContext());
            }
 
 }
