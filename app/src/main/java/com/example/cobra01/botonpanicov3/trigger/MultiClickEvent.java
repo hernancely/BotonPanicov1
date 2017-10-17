@@ -73,6 +73,7 @@ public class MultiClickEvent {
                 waitForConfirmation = true;
                 eventLog.put("Waiting for confirmation", new Date(eventTime).toString());
                 vibrationStartTime = eventTime;
+
                 return;
             }
         }

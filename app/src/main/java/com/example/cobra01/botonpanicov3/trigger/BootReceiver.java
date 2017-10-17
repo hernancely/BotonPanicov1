@@ -22,5 +22,6 @@ public class BootReceiver extends BroadcastReceiver {
         if(intent.getAction().equals(ACTION_BOOT_COMPLETED)) {
             context.startService(new Intent(context, HardwareTriggerService.class));
         }
+
     }
 }

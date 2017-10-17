@@ -1,4 +1,22 @@
 <resources>
-    <string name="app_name">BotonPanicov3</string>
+    <string name="app_name">SecurityVigilant</string>
     <string name="i_am_at">AYUDA!!!!! Mi Posicion es:</string>
+    <string name="title_activity_login">Registrate</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Nombres Completos</string>
+    <string name="prompt_direccion">Direccion</string>
+    <string name="prompt_telefono">Telefono</string>
+    <string name="prompt_identificacion">Identificacion</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Registrarse</string>
+    <string name="action_sign_in_short">Registrarse</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="error_red">Sin Conexion a Internet</string>
 </resources>

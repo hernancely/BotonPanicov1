@@ -9,6 +9,9 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
+
+import com.example.cobra01.botonpanicov3.alerta.MensajePanico;
+
 import static android.content.Context.LOCATION_SERVICE;
 
 /**
@@ -23,6 +26,7 @@ public class PosicionListener implements LocationListener {
     private static final int GPS_TIME_INTERVAL = 60000; // get gps location every 1 min
     private static final int GPS_DISTANCE= 1000; // set the distance value in meter
     private static final int captureFrequencey=3*60*1000;
+
     public PosicionListener(Context context) {
         super();
         this.context = context;
@@ -48,12 +52,8 @@ public class PosicionListener implements LocationListener {
                     // for ActivityCompat#requestPermissions for more details.
                     return null;
                 }
-               loc = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                loc = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                 locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, captureFrequencey, 100, this);
-               /* if(LocationListener){
-                    locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
-                            GPS_TIME_INTERVAL, GPS_DISTANCE, GPSListener);
-                }*/
                 Log.e("sec","posicion detectada");
                 return loc;
             }else{
@@ -70,7 +70,15 @@ public class PosicionListener implements LocationListener {
     // Este metodo se ejecuta cada vez que el GPS recibe nuevas coordenadas
         // debido a la deteccion de un cambio de ubicacion
         Log.e(">>>>>>", "Enviando posicion Actual.");
+        String locationString = new FormatoPosicion(location).format();
+        MensajePanico mpo = new MensajePanico(context);
+        Log.e("POSICION CAMBIADA",locationString);
+        try {
+            mpo.recibir(locationString);
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

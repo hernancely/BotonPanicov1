@@ -37,7 +37,8 @@ public class HardwareTriggerReceiver extends BroadcastReceiver {
                 Log.e("*****", "Click completado, Iniciando evento");
                 PosicionListener pl =  new PosicionListener(context);
                 Location lo = pl.getLocation();
-                String locationString = new FormatoPosicion(lo).format(context);
+                Log.e("POSICION", String.valueOf(lo));
+                String locationString = new FormatoPosicion(lo).format();
                 MensajePanico mpo = new MensajePanico(context);
                 Log.e("POSICION FORMATEO",locationString);
                 try {

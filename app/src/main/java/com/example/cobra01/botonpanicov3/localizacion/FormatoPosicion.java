@@ -15,7 +15,7 @@ public class FormatoPosicion {
         this.location = location;
     }
 
-    public String format(Context context) {
+    public String format() {
         Log.e("*****", "Formateo de posicion a url");
         if (location != null) {
             String provider = location.getProvider();
